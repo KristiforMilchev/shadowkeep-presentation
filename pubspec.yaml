@@ -37,11 +37,11 @@ dependencies:
   injectable_generator: ^2.1.3
   cupertino_icons: ^1.0.2
   infrastructure:
-    path: "../infrastructure"
+    path: "shadowkeep-infrastructure"
   application:
-    path: "../application"
+    path: "shadowkeep-application"
   domain:
-    path: "../domain"
+    path: "shadowkeep-domain"
   flutter_svg: ^2.0.4
   gradient_borders: ^1.0.0
   go_router: ^7.1.1

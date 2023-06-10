@@ -20,7 +20,7 @@ packages:
   application:
     dependency: "direct main"
     description:
-      path: "../application"
+      path: shadowkeep-application
       relative: true
     source: path
     version: "0.0.1"
@@ -227,7 +227,7 @@ packages:
   domain:
     dependency: "direct main"
     description:
-      path: "../domain"
+      path: shadowkeep-domain
       relative: true
     source: path
     version: "0.0.1"
@@ -401,7 +401,7 @@ packages:
   infrastructure:
     dependency: "direct main"
     description:
-      path: "../infrastructure"
+      path: shadowkeep-infrastructure
       relative: true
     source: path
     version: "0.0.1"

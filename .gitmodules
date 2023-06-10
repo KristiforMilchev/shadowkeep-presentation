@@ -1,0 +1,9 @@
+[submodule "shadowkeep-domain"]
+	path = shadowkeep-domain
+	url = git@github.com:KristiforMilchev/shadowkeep-domain.git
+[submodule "shadowkeep-infrastructure"]
+	path = shadowkeep-infrastructure
+	url = git@github.com:KristiforMilchev/shadowkeep-infrastructure.git
+[submodule "shadowkeep-application"]
+	path = shadowkeep-application
+	url = git@github.com:KristiforMilchev/shadowkeep-application.git
