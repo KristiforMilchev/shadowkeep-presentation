@@ -67,8 +67,13 @@ class ApplicationRouter {
   }
 
   static final List<(String, dynamic, int, Duration)> _routes = [
-    ("home-view", HomeView(), 0, Duration(milliseconds: 600)),
-    ("open-book-view", OpenBookView(), 1, Duration(milliseconds: 1200)),
+    ("home-view", const HomeView(), 0, const Duration(milliseconds: 600)),
+    (
+      "open-book-view",
+      const OpenBookView(),
+      1,
+      const Duration(milliseconds: 1200)
+    ),
   ];
   static const Duration animationDuration = Duration(milliseconds: 500);
   static final GoRouter router = GoRouter(
