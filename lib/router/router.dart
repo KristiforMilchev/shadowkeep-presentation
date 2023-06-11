@@ -5,9 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:presentation/views/open-book/open_book_view.dart';
-import 'package:presentation/views/planning/khanban/khanban_view.dart';
-import 'package:presentation/views/planning/planning/planning_view.dart';
-import 'package:presentation/views/planning/sprint_planner/sprint_planner_view.dart';
 import 'package:presentation/views/splash/splash.view.dart';
 
 import '../views/home/home.view.dart';
