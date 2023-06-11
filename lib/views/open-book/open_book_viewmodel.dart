@@ -1,3 +1,11 @@
-import 'package:presentation/page_view_model.dart';
+import 'package:flutter/material.dart';
 
-class OpenBookViewModel extends PageViewModel {}
+import '../../../page_view_model.dart';
+
+class OpenBookViewModel extends PageViewModel {
+  late BuildContext _context;
+
+  ready(BuildContext context) {
+    _context = context;
+  }
+}

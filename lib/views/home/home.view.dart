@@ -1,6 +1,7 @@
 import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/components/bottom_nav_bar/bottom_nav_bar_view.dart';
+import 'package:presentation/components/custom_button/custom_button.dart';
 import 'package:presentation/components/custom_icon_button/custom_icon_button.dart';
 import 'package:presentation/components/custom_text_field/custom_text_field.dart';
 
@@ -70,103 +71,108 @@ class HomeView extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: ThemeStyles.secondaryColor,
                       ),
-                      child: Column(
-                        children: [
-                          Stack(
-                            children: [
-                              Positioned(
-                                left: 0,
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: ThemeStyles.mainColor,
-                                      ),
-                                      child: Container(
-                                        padding: const EdgeInsets.all(6),
-                                        child: Text(
-                                          "Fiction",
-                                          style: ThemeStyles.regularParagraph,
+                      child: CustomButton(
+                        callback: () => viewModel.onBookSelected(
+                          viewModel.books.elementAt(index),
+                        ),
+                        widget: Column(
+                          children: [
+                            Stack(
+                              children: [
+                                Positioned(
+                                  left: 0,
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: ThemeStyles.mainColor,
+                                        ),
+                                        child: Container(
+                                          padding: const EdgeInsets.all(6),
+                                          child: Text(
+                                            "Fiction",
+                                            style: ThemeStyles.regularParagraph,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: ThemeStyles.mainColor,
-                                      ),
-                                      child: Container(
-                                        padding: const EdgeInsets.all(6),
-                                        child: Text(
-                                          "Fantasy",
-                                          style: ThemeStyles.regularParagraph,
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: ThemeStyles.mainColor,
+                                        ),
+                                        child: Container(
+                                          padding: const EdgeInsets.all(6),
+                                          child: Text(
+                                            "Fantasy",
+                                            style: ThemeStyles.regularParagraph,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: ThemeStyles.mainColor,
-                                      ),
-                                      child: Container(
-                                        padding: const EdgeInsets.all(6),
-                                        child: Text(
-                                          "Sci-fy",
-                                          style: ThemeStyles.regularParagraph,
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: ThemeStyles.mainColor,
+                                        ),
+                                        child: Container(
+                                          padding: const EdgeInsets.all(6),
+                                          child: Text(
+                                            "Sci-fy",
+                                            style: ThemeStyles.regularParagraph,
+                                          ),
                                         ),
                                       ),
+                                    ],
+                                  ),
+                                ),
+                                Center(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: ThemeStyles.mainColor,
                                     ),
-                                  ],
-                                ),
-                              ),
-                              Center(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: ThemeStyles.mainColor,
-                                  ),
-                                  padding: const EdgeInsets.all(6),
-                                  child: Text(
-                                    "Heading",
-                                    style: ThemeStyles.regularHeading,
+                                    padding: const EdgeInsets.all(6),
+                                    child: Text(
+                                      "Heading",
+                                      style: ThemeStyles.regularHeading,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Positioned(
-                                right: 0,
-                                child: CustomIconButton(
-                                  icon: const Icon(
-                                    Icons.remove_circle_outline,
-                                    color: ThemeStyles.fontPrimary,
-                                  ),
-                                  label: "",
-                                  callback: () => viewModel.removeBook(
-                                    viewModel.books.elementAt(index),
+                                Positioned(
+                                  right: 0,
+                                  child: CustomIconButton(
+                                    icon: const Icon(
+                                      Icons.remove_circle_outline,
+                                      color: ThemeStyles.fontPrimary,
+                                    ),
+                                    label: "",
+                                    callback: () => viewModel.removeBook(
+                                      viewModel.books.elementAt(index),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(60),
-                            child: const Icon(
-                              Icons.menu_book_sharp,
-                              color: ThemeStyles.fontPrimary,
-                              size: 96,
+                              ],
                             ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(20),
-                            child: Text(
-                              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                              style: ThemeStyles.regularParagraphOv(
-                                size: 16,
+                            Container(
+                              padding: const EdgeInsets.all(60),
+                              child: const Icon(
+                                Icons.menu_book_sharp,
                                 color: ThemeStyles.fontPrimary,
+                                size: 96,
                               ),
                             ),
-                          ),
-                          const Divider(
-                            thickness: 1,
-                            color: ThemeStyles.fontSecondary,
-                          )
-                        ],
+                            Container(
+                              padding: const EdgeInsets.all(20),
+                              child: Text(
+                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                                style: ThemeStyles.regularParagraphOv(
+                                  size: 16,
+                                  color: ThemeStyles.fontPrimary,
+                                ),
+                              ),
+                            ),
+                            const Divider(
+                              thickness: 1,
+                              color: ThemeStyles.fontSecondary,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],

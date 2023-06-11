@@ -45,4 +45,14 @@ class HomeViewModel extends PageViewModel {
   onAddNewBook() {}
 
   removeBook(bool elementAt) {}
+
+  onBookSelected(bool elementAt) {
+    router.changePage(
+      "/open-book-view",
+      _context,
+      TransitionData(
+        next: PageTransition.slideForward,
+      ),
+    );
+  }
 }
