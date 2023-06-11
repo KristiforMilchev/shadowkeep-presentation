@@ -1,8 +1,8 @@
-# Install script for directory: /home/kristifor/Projects/shadowkeep/presentation/linux/flutter
+# Install script for directory: /home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux/flutter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle")
+  set(CMAKE_INSTALL_PREFIX "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

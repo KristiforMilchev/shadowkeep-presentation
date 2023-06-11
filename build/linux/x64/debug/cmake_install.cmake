@@ -1,8 +1,8 @@
-# Install script for directory: /home/kristifor/Projects/shadowkeep/presentation/linux
+# Install script for directory: /home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle")
+  set(CMAKE_INSTALL_PREFIX "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,83 +44,83 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   
-  file(REMOVE_RECURSE "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/")
+  file(REMOVE_RECURSE "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/")
   
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/presentation" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/presentation")
+  if(EXISTS "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/presentation"
+         FILE "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation"
          RPATH "$ORIGIN/lib")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/presentation")
+   "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle" TYPE EXECUTABLE FILES "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/intermediates_do_not_run/presentation")
-  if(EXISTS "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/presentation" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/presentation")
+  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle" TYPE EXECUTABLE FILES "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/intermediates_do_not_run/presentation")
+  if(EXISTS "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/presentation"
-         OLD_RPATH "/home/kristifor/Projects/shadowkeep/presentation/linux/flutter/ephemeral:"
+         FILE "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation"
+         OLD_RPATH "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux/flutter/ephemeral:"
          NEW_RPATH "$ORIGIN/lib")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/llvm-strip" "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/presentation")
+      execute_process(COMMAND "/usr/bin/llvm-strip" "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation")
     endif()
   endif()
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/data/icudtl.dat")
+   "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/icudtl.dat")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/data" TYPE FILE FILES "/home/kristifor/Projects/shadowkeep/presentation/linux/flutter/ephemeral/icudtl.dat")
+  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data" TYPE FILE FILES "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux/flutter/ephemeral/icudtl.dat")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so")
+   "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/kristifor/Projects/shadowkeep/presentation/linux/flutter/ephemeral/libflutter_linux_gtk.so")
+  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux/flutter/ephemeral/libflutter_linux_gtk.so")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   
-  file(REMOVE_RECURSE "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/data/flutter_assets")
+  file(REMOVE_RECURSE "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets")
   
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/data/flutter_assets")
+   "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/bundle/data" TYPE DIRECTORY FILES "/home/kristifor/Projects/shadowkeep/presentation/build//flutter_assets")
+  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data" TYPE DIRECTORY FILES "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build//flutter_assets")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/flutter/cmake_install.cmake")
+  include("/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/flutter/cmake_install.cmake")
 
 endif()
 
@@ -132,5 +132,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

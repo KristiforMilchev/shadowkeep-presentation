@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/home/kristifor/Projects/shadowkeep/presentation/linux -B/home/kristifor/Projects/shadowkeep/presentation/build/linux/x64/debug
+  command = /usr/bin/cmake --regenerate-during-build -S/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux -B/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug
   description = Re-running CMake...
   generator = 1
 

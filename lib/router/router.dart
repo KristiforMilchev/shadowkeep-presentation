@@ -4,6 +4,7 @@ import 'package:domain/models/transition_data.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+import 'package:presentation/views/open-book/open_book_view.dart';
 import 'package:presentation/views/planning/khanban/khanban_view.dart';
 import 'package:presentation/views/planning/planning/planning_view.dart';
 import 'package:presentation/views/planning/sprint_planner/sprint_planner_view.dart';
@@ -65,6 +66,10 @@ class ApplicationRouter {
     );
   }
 
+  static final List<(String, dynamic, int, Duration)> _routes = [
+    ("home-view", HomeView(), 0, Duration(milliseconds: 600)),
+    ("open-book-view", OpenBookView(), 1, Duration(milliseconds: 1200)),
+  ];
   static const Duration animationDuration = Duration(milliseconds: 500);
   static final GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -74,54 +79,31 @@ class ApplicationRouter {
           return const SplashView();
         },
         routes: <RouteBase>[
-          GoRoute(
-            path: 'home-view',
-            pageBuilder: (context, state) {
-              // var pageData = state.extra as TransitionData;
-              // var condition = pageData.data as bool;
-              return CustomTransitionPage(
-                child: const HomeView(),
-                transitionDuration: animationDuration,
-                transitionsBuilder: (
-                  context,
-                  animation,
-                  secondaryAnimation,
-                  child,
-                ) =>
-                    tranisitionController(
-                  context,
-                  animation,
-                  secondaryAnimation,
-                  child,
-                  state,
-                ),
-              );
-            },
-          ),
-          GoRoute(
-            path: 'planning-view',
-            pageBuilder: (context, state) {
-              // var pageData = state.extra as TransitionData;
-              // var condition = pageData.data as bool;
-              return CustomTransitionPage(
-                child: const PlanningView(),
-                transitionDuration: animationDuration,
-                transitionsBuilder: (
-                  context,
-                  animation,
-                  secondaryAnimation,
-                  child,
-                ) =>
-                    tranisitionController(
-                  context,
-                  animation,
-                  secondaryAnimation,
-                  child,
-                  state,
-                ),
-              );
-            },
-          ),
+          ..._routes.map(
+            (e) => GoRoute(
+              path: e.$1,
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+                  key: state.pageKey,
+                  transitionDuration: e.$4,
+                  child: e.$2,
+                  transitionsBuilder: (
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ) =>
+                      tranisitionController(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                    state,
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     ],
