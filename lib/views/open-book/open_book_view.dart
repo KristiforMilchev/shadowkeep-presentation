@@ -1,6 +1,4 @@
-import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:graphview/GraphView.dart';
 import 'package:presentation/components/bottom_nav_bar/bottom_nav_bar_view.dart';
 import 'package:presentation/components/relation_graph/relational_graph_view.dart';
 import 'package:presentation/views/open-book/open_book_viewmodel.dart';
@@ -14,10 +12,10 @@ class OpenBookView extends StatelessWidget {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => OpenBookViewModel(),
       onViewModelReady: (viewModel) => viewModel.ready(context),
-      builder: (context, viewModel, child) => Material(
+      builder: (context, viewModel, child) => const Material(
         child: Column(
           children: [
-            const NavBar(
+            NavBar(
               barContent: Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
