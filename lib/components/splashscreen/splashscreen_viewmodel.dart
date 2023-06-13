@@ -1,12 +1,10 @@
 import 'dart:async';
 
-import 'package:get_it/get_it.dart';
 import 'package:stacked/stacked.dart';
 
 class SplashScreenViewModel extends BaseViewModel {
   double _splashAnimation = 0;
   get splashAnimation => _splashAnimation;
-  Timer? _timer;
   late Function _finished;
 
   ready(Function callback) {

@@ -38,6 +38,7 @@ class HomeViewModel extends PageViewModel {
   removeBook(Book book) {}
 
   onBookSelected(Book book) {
+    sessionManager.bookId = book.id;
     router.changePage(
       "/open-book-view",
       _context,

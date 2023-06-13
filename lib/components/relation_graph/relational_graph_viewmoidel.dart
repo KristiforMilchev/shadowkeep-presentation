@@ -5,7 +5,6 @@ import 'package:graphview/GraphView.dart';
 import 'package:presentation/page_view_model.dart';
 
 class RelationalGraphViewModel extends PageViewModel {
-  late BuildContext _context;
   List<RelationalBinding> _data = [];
 
   List<Widget> typesData = [];
@@ -13,7 +12,6 @@ class RelationalGraphViewModel extends PageViewModel {
   BuchheimWalkerConfiguration builder = BuchheimWalkerConfiguration();
 
   ready(BuildContext context, String key) async {
-    _context = context;
     observer.subscribe(key, onLoadData);
   }
 
@@ -27,8 +25,7 @@ class RelationalGraphViewModel extends PageViewModel {
 
       return item.content;
     } catch (exception) {
-      print(exception);
-      return Placeholder();
+      return const Placeholder();
     }
   }
 
@@ -57,9 +54,8 @@ class RelationalGraphViewModel extends PageViewModel {
         ..levelSeparation = (150)
         ..subtreeSeparation = (150)
         ..orientation = (BuchheimWalkerConfiguration.ORIENTATION_TOP_BOTTOM);
-    } catch (exception) {
-      print(exception);
-    }
+      // ignore: empty_catches
+    } catch (exception) {}
     notifyListeners();
   }
 
