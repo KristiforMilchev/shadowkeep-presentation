@@ -23,13 +23,7 @@ class OpenBookView extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-                child: Row(
-              children: [
-                RelationalGraphView(observable: "characterGraph"),
-                RelationalGraphView(observable: "chapterGraph"),
-              ],
-            ))
+            RelationalGraphView(observable: "chapterGraph")
           ],
         ),
       ),

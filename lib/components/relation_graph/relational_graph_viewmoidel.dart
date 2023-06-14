@@ -23,7 +23,9 @@ class RelationalGraphViewModel extends PageViewModel {
     try {
       var item = _data.firstWhere((element) => element.id == a);
 
-      return item.content;
+      return Placeholder(
+        child: Text(item.id.toString()),
+      );
     } catch (exception) {
       return const Placeholder();
     }
@@ -32,20 +34,17 @@ class RelationalGraphViewModel extends PageViewModel {
   drawGraph() {
     try {
       for (var element in _data) {
-        var related = _data
-            .where((workItem) => workItem.relatedTo == element.id)
-            .toList();
+        if (element.related.isNotEmpty) {
+          graph.addNode(Node.Id(element.id));
 
-        if (related.isEmpty && _data.length == 1 || _data.length == 1) {
-          graph.addNode(Node.Id(_data.first.id));
-        }
-
-        for (var relatedNode in related) {
-          graph.addEdge(
-            Node.Id(element.id),
-            Node.Id(relatedNode.id),
-            paint: Paint()..color = ThemeStyles.actionColor,
-          );
+          for (var relatedNode in element.related) {
+            graph.addNode(Node.Id(relatedNode.id));
+            graph.addEdge(
+              Node.Id(element.id),
+              Node.Id(relatedNode.id),
+              paint: Paint()..color = ThemeStyles.actionColor,
+            );
+          }
         }
       }
 
