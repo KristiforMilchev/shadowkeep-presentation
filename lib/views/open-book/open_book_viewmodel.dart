@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:domain/models/chapter.dart';
 import 'package:domain/models/character.dart';
 import 'package:domain/models/relational_binding.dart';
@@ -33,97 +32,175 @@ class OpenBookViewModel extends PageViewModel {
   Future loadCharacters() async {
     _characters =
         await _characterService.getRelatedCharacters(sessionManager.bookId);
-    // await observer.getObserver("characterGraph").call(
-    //       _characters
-    //           .map(
-    //             (e) => RelationalBinding(
-    //                 content: Container(
-    //                   child: Text(e.firstName),
-    //                 ),
-    //                 id: e.id,
-    //                 relatedTo: _characters.first.id),
-    //           )
-    //           .toList(),
-    //     );
+
+    List<RelationalBinding> _bindingData = [];
+    int i = 0;
+    for (var character in _characters) {
+      var currentCharacter = RelationalBinding(
+        id: i,
+        content: Container(
+          height: 100,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: ThemeStyles.mainColor,
+            shape: BoxShape.circle,
+          ),
+          child: Column(
+            children: [
+              const Icon(
+                Icons.account_circle_outlined,
+                color: ThemeStyles.fontPrimary,
+                size: 32,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                character.firstName,
+                style: ThemeStyles.innerHeading,
+              ),
+            ],
+          ),
+        ),
+      );
+      var related = await _characterService.getEncounters(
+        character.id,
+        sessionManager.bookId,
+      );
+
+      currentCharacter.related = related
+          .map(
+            (e) => RelationalBinding(
+              id: i++,
+              content: Container(
+                height: 100,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: ThemeStyles.mainColor,
+                  shape: BoxShape.circle,
+                ),
+                child: Column(
+                  children: [
+                    const Icon(
+                      Icons.account_circle_outlined,
+                      color: ThemeStyles.fontPrimary,
+                      size: 32,
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      e.firstName,
+                      style: ThemeStyles.innerHeading,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+          .toList();
+      _bindingData.add(currentCharacter);
+    }
+    await observer.getObserver("characterGraph").call(_bindingData);
   }
 
   Future loadChapters() async {
     _chapters = await _chapterService.getAllChapters(sessionManager.bookId);
 
     List<RelationalBinding> _bindingData = [];
+    var i = 0;
+    int index = i;
+    int o = 0;
     for (var chapter in _chapters) {
       var currentChapter = RelationalBinding(
-        id: chapter.id,
+        id: i,
         content: Container(
           width: 300,
           height: 300,
           color: ThemeStyles.mainColor,
-          child: Expanded(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(
-                      Icons.paragliding,
-                      color: ThemeStyles.mainColor,
-                      size: 25,
-                    ),
-                    Text(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Icon(
+                    Icons.book_outlined,
+                    color: ThemeStyles.fontSecondary,
+                    size: 25,
+                  ),
+                  Expanded(
+                    child: Text(
                       chapter.pageTitle,
                       style: ThemeStyles.innerHeading,
                       textAlign: TextAlign.center,
                     ),
-                  ],
-                ),
-                Expanded(
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
                   child: Text(
                     chapter.shortDescription ?? "",
                     style: ThemeStyles.regularParagraph,
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      color: ThemeStyles.secondaryColor,
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.add,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    color: ThemeStyles.secondaryColor,
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.add,
+                          color: ThemeStyles.actionColor,
+                        ),
+                        Text(
+                          "Add new page",
+                          style: ThemeStyles.regularParagraphOv(
                             color: ThemeStyles.actionColor,
                           ),
-                          Text(
-                            "Add new page",
-                            style: ThemeStyles.regularParagraphOv(
-                              color: ThemeStyles.actionColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
           ),
         ),
-        relatedTo: chapter.id,
+        relatedTo: o == 0 ? null : o,
       );
       _bindingData.add(currentChapter);
       currentChapter.related = [];
       var pages = await _pageService.getChapterPages(chapter.id);
-      pages
-          .map(
-            (e) => currentChapter.related.add(
-              RelationalBinding(
-                id: _bindingData.length + 1,
-                content: Placeholder(),
-                relatedTo: chapter.id,
+      o = i;
+
+      for (var page in pages) {
+        i++;
+
+        currentChapter.related.add(
+          RelationalBinding(
+            id: i,
+            content: Container(
+              width: 150,
+              height: 150,
+              color: ThemeStyles.actionColor,
+              child: Column(
+                children: [
+                  ...page.content
+                      .map(
+                        (e) => Text(
+                          e,
+                          style: ThemeStyles.regularParagraph,
+                        ),
+                      )
+                      .toList()
+                ],
               ),
             ),
-          )
-          .toList();
+            relatedTo: o,
+          ),
+        );
+      }
     }
 
     observer.getObserver("chapterGraph").call(_bindingData);

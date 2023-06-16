@@ -1,60 +1,41 @@
 import 'package:domain/models/relational_binding.dart';
-import 'package:domain/styles.dart';
+import 'package:flow_graph/flow_graph.dart';
 import 'package:flutter/material.dart';
-import 'package:graphview/GraphView.dart';
 import 'package:presentation/page_view_model.dart';
 
 class RelationalGraphViewModel extends PageViewModel {
   List<RelationalBinding> _data = [];
-
+  bool get hasData => _data.isNotEmpty;
   List<Widget> typesData = [];
-  Graph graph = Graph()..isTree = true;
-  BuchheimWalkerConfiguration builder = BuchheimWalkerConfiguration();
-
+  GraphNode root = GraphNode(data: 'Root', isRoot: true);
   ready(BuildContext context, String key) async {
     observer.subscribe(key, onLoadData);
   }
 
-  getNodeBuilder() {
-    return BuchheimWalkerAlgorithm(builder, TreeEdgeRenderer(builder));
-  }
-
-  Widget rectangleWidget(int a) {
-    try {
-      var item = _data.firstWhere((element) => element.id == a);
-
-      return Placeholder(
-        child: Text(item.id.toString()),
-      );
-    } catch (exception) {
-      return const Placeholder();
-    }
-  }
-
   drawGraph() {
-    try {
-      for (var element in _data) {
-        if (element.related.isNotEmpty) {
-          graph.addNode(Node.Id(element.id));
+    var main = _data.first;
+    root = GraphNode(data: main.content, isRoot: true);
 
-          for (var relatedNode in element.related) {
-            graph.addNode(Node.Id(relatedNode.id));
-            graph.addEdge(
-              Node.Id(element.id),
-              Node.Id(relatedNode.id),
-              paint: Paint()..color = ThemeStyles.actionColor,
-            );
-          }
-        }
+    main.related.forEach((element) {
+      root.addNext(GraphNode(data: element.content));
+    });
+
+    var isFirst = true;
+    var prevNode = root;
+
+    for (var chapter in _data.skip(1)) {
+      var buildNode = GraphNode();
+
+      buildNode.data = chapter.content;
+      for (var element in chapter.related) {
+        buildNode.addNext(GraphNode(data: element.content));
       }
 
-      builder
-        ..siblingSeparation = (100)
-        ..levelSeparation = (150)
-        ..subtreeSeparation = (150)
-        ..orientation = (BuchheimWalkerConfiguration.ORIENTATION_TOP_BOTTOM);
-      // ignore: empty_catches
-    } catch (exception) {}
+      prevNode.addNext(buildNode);
+      prevNode = buildNode;
+      isFirst = false;
+    }
+
     notifyListeners();
   }
 

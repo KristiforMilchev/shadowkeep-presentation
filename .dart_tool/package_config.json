@@ -200,6 +200,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "flow_graph",
+      "rootUri": "file:///home/kristifor/.pub-cache/git/flow_graph-6ecb57234d354e1549e5459b7f1a434a28942f95/",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///home/kristifor/software/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -354,6 +360,12 @@
       "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "logger",
+      "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/logger-1.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "logging",
@@ -548,6 +560,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "ulid",
+      "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/ulid-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "universal_io",
       "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/universal_io-2.2.2",
       "packageUri": "lib/",
@@ -608,7 +626,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-06-14T15:13:24.381842Z",
+  "generated": "2023-06-16T15:58:55.522432Z",
   "generator": "pub",
   "generatorVersion": "3.1.0-180.0.dev"
 }

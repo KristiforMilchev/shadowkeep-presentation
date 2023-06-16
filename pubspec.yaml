@@ -53,6 +53,9 @@ dependencies:
   d_chart: ^2.2.11
   graphview: ^1.2.0
   flutter_dropzone: ^3.0.5
+  flow_graph:
+    git:
+      url: "https://github.com/KristiforMilchev/flow_graph"
  
 
 dev_dependencies:
