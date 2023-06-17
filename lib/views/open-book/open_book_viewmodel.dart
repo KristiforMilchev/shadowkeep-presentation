@@ -214,7 +214,7 @@ class OpenBookViewModel extends PageViewModel {
                       child: Row(
                         children: [
                           CustomButton(
-                            widget: Icon(
+                            widget: const Icon(
                               Icons.edit,
                               color: ThemeStyles.actionColor,
                               size: 18,
@@ -222,7 +222,7 @@ class OpenBookViewModel extends PageViewModel {
                             callback: () {},
                           ),
                           CustomButton(
-                            widget: Icon(
+                            widget: const Icon(
                               Icons.delete,
                               color: ThemeStyles.actionColor,
                               size: 18,
