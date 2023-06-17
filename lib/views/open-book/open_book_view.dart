@@ -12,7 +12,7 @@ class OpenBookView extends StatelessWidget {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => OpenBookViewModel(),
       onViewModelReady: (viewModel) => viewModel.ready(context),
-      builder: (context, viewModel, child) => Material(
+      builder: (context, viewModel, child) => const Material(
         child: Column(
           children: [
             NavBar(
@@ -24,9 +24,21 @@ class OpenBookView extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: RelationalGraphView(
-                orintation: Axis.vertical,
-                observable: "characterGraph",
+              child: Row(
+                children: [
+                  Expanded(
+                    child: RelationalGraphView(
+                      orintation: Axis.vertical,
+                      observable: "characterGraph",
+                    ),
+                  ),
+                  Expanded(
+                    child: Placeholder(),
+                  ),
+                  Expanded(
+                    child: Placeholder(),
+                  ),
+                ],
               ),
             ),
             Expanded(

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:infrastructure/interfaces/ichapter_service.dart';
 import 'package:infrastructure/interfaces/icharacter_service.dart';
 import 'package:infrastructure/interfaces/ipage_service.dart';
+import 'package:presentation/components/custom_button/custom_button.dart';
 
 import '../../../page_view_model.dart';
 
@@ -147,19 +148,22 @@ class OpenBookViewModel extends PageViewModel {
                 children: [
                   Container(
                     color: ThemeStyles.secondaryColor,
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.add,
-                          color: ThemeStyles.actionColor,
-                        ),
-                        Text(
-                          "Add new page",
-                          style: ThemeStyles.regularParagraphOv(
+                    child: CustomButton(
+                      callback: () {},
+                      widget: Row(
+                        children: [
+                          const Icon(
+                            Icons.add,
                             color: ThemeStyles.actionColor,
                           ),
-                        ),
-                      ],
+                          Text(
+                            "Add new page",
+                            style: ThemeStyles.regularParagraphOv(
+                              color: ThemeStyles.actionColor,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],
@@ -173,34 +177,177 @@ class OpenBookViewModel extends PageViewModel {
       currentChapter.related = [];
       var pages = await _pageService.getChapterPages(chapter.id);
       o = i;
-
+      List<Widget> pageData = [];
       for (var page in pages) {
         i++;
 
-        currentChapter.related.add(
-          RelationalBinding(
-            id: i,
-            content: Container(
-              width: 150,
-              height: 150,
-              color: ThemeStyles.actionColor,
-              child: Column(
-                children: [
-                  ...page.content
-                      .map(
-                        (e) => Text(
-                          e,
-                          style: ThemeStyles.regularParagraph,
+        pageData.add(
+          Container(
+            padding: EdgeInsets.all(12),
+            color: ThemeStyles.secondaryColor,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: ThemeStyles.secondaryColor,
+                          borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(8),
+                          ),
                         ),
-                      )
-                      .toList()
-                ],
-              ),
+                        child: Icon(
+                          Icons.insert_drive_file_rounded,
+                          color: ThemeStyles.fontPrimary,
+                          size: 18,
+                        )),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: ThemeStyles.secondaryColor,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          CustomButton(
+                            widget: Icon(
+                              Icons.edit,
+                              color: ThemeStyles.actionColor,
+                              size: 18,
+                            ),
+                            callback: () {},
+                          ),
+                          CustomButton(
+                            widget: Icon(
+                              Icons.delete,
+                              color: ThemeStyles.actionColor,
+                              size: 18,
+                            ),
+                            callback: () {},
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: pages.elementAt(index).content.length,
+                    itemBuilder: (context, index) => Text(
+                      pages.elementAt(index).content.elementAt(index),
+                      style: ThemeStyles.regularParagraph,
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            relatedTo: o,
           ),
         );
       }
+
+      currentChapter.related.add(
+        RelationalBinding(
+          id: i,
+          content: Container(
+            constraints: BoxConstraints(
+              // ignore: use_build_context_synchronously
+              maxWidth: MediaQuery.of(_context).size.width - 200,
+            ),
+            decoration: BoxDecoration(
+              color: ThemeStyles.mainColor,
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: GridView.count(
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      crossAxisCount: 6,
+                      children: pageData,
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: ThemeStyles.secondaryColor,
+                        borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(8),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.group_rounded,
+                            color: Color.fromARGB(209, 228, 225, 225),
+                            size: 18,
+                          ),
+                          const SizedBox(width: 8),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+                            child: Text(
+                              "Penny",
+                              style: ThemeStyles.whiteParagraph,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+                            child: Text(
+                              "George",
+                              style: ThemeStyles.whiteParagraph,
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+                            child: Text(
+                              "Steven",
+                              style: ThemeStyles.whiteParagraph,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: ThemeStyles.secondaryColor,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.pages,
+                            color: ThemeStyles.fontPrimary,
+                            size: 18,
+                          ),
+                          Text(
+                            "${pageData.length}",
+                            style: ThemeStyles.whiteParagraph,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          relatedTo: o,
+        ),
+      );
     }
 
     observer.getObserver("chapterGraph").call(_bindingData);
