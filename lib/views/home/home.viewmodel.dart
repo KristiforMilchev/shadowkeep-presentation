@@ -10,6 +10,7 @@ class HomeViewModel extends PageViewModel {
   late BuildContext _context;
   List<Book> _books = [];
   List<Book> get books => _books;
+
   ready(BuildContext context) async {
     _context = context;
 

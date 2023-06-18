@@ -83,42 +83,25 @@ class HomeView extends StatelessWidget {
                                   left: 0,
                                   child: Row(
                                     children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: ThemeStyles.mainColor,
-                                        ),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(6),
-                                          child: Text(
-                                            "Fiction",
-                                            style: ThemeStyles.regularParagraph,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: ThemeStyles.mainColor,
-                                        ),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(6),
-                                          child: Text(
-                                            "Fantasy",
-                                            style: ThemeStyles.regularParagraph,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: ThemeStyles.mainColor,
-                                        ),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(6),
-                                          child: Text(
-                                            "Sci-fy",
-                                            style: ThemeStyles.regularParagraph,
-                                          ),
-                                        ),
-                                      ),
+                                      ...viewModel.books
+                                          .elementAt(index)
+                                          .categories
+                                          .map(
+                                            (e) => Container(
+                                              decoration: BoxDecoration(
+                                                color: ThemeStyles.mainColor,
+                                              ),
+                                              child: Container(
+                                                padding:
+                                                    const EdgeInsets.all(6),
+                                                child: Text(
+                                                  e,
+                                                  style: ThemeStyles
+                                                      .regularParagraph,
+                                                ),
+                                              ),
+                                            ),
+                                          )
                                     ],
                                   ),
                                 ),
@@ -129,7 +112,7 @@ class HomeView extends StatelessWidget {
                                     ),
                                     padding: const EdgeInsets.all(6),
                                     child: Text(
-                                      "Heading",
+                                      viewModel.books.elementAt(index).title,
                                       style: ThemeStyles.regularHeading,
                                     ),
                                   ),
@@ -160,7 +143,7 @@ class HomeView extends StatelessWidget {
                             Container(
                               padding: const EdgeInsets.all(20),
                               child: Text(
-                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                                viewModel.books.elementAt(index).description,
                                 style: ThemeStyles.regularParagraphOv(
                                   size: 16,
                                   color: ThemeStyles.fontPrimary,
