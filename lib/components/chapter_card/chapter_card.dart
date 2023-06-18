@@ -52,7 +52,7 @@ class ChapterCard extends StatelessWidget {
                 Container(
                   color: ThemeStyles.secondaryColor,
                   child: CustomButton(
-                    callback: () {},
+                    callback: viewModel.onActionButtonPressed,
                     widget: Row(
                       children: [
                         const Icon(

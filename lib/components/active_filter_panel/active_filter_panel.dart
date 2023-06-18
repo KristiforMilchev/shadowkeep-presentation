@@ -28,25 +28,26 @@ class ActiveFilterPanel extends StatelessWidget {
                       borderRadius: BorderRadius.circular(3),
                     ),
                     child: CustomButton(
-                        widget: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(
-                              Icons.filter_alt_off,
-                              color: ThemeStyles.fontPrimary,
-                            ),
-                            Text(
-                              "Clear all filters",
-                              style: ThemeStyles.whiteParagraph,
-                            )
-                          ],
-                        ),
-                        callback: viewModel.onClearWordFilters),
+                      widget: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.filter_alt_off,
+                            color: ThemeStyles.fontPrimary,
+                          ),
+                          Text(
+                            "Clear all filters",
+                            style: ThemeStyles.whiteParagraph,
+                          )
+                        ],
+                      ),
+                      callback: viewModel.onClearWordFilters,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 30),
                 Expanded(
-                  flex: 3,
+                  flex: MediaQuery.of(context).size.width > 2000 ? 3 : 1,
                   child: CustomTextField(
                     floatingLabel: "",
                     onChange: viewModel.onKeywordChanged,
