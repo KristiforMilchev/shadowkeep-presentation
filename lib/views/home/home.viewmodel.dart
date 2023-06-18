@@ -23,14 +23,6 @@ class HomeViewModel extends PageViewModel {
     });
   }
 
-  onPlanningPressed() {
-    router.changePage(
-      "/planning-view",
-      _context,
-      TransitionData(next: PageTransition.slideForward),
-    );
-  }
-
   onSearchChanged() {}
 
   onAddNewBook() {}
@@ -39,6 +31,8 @@ class HomeViewModel extends PageViewModel {
 
   onBookSelected(Book book) {
     sessionManager.bookId = book.id;
+    chapterService.setBookId(book.id);
+
     router.changePage(
       "/open-book-view",
       _context,

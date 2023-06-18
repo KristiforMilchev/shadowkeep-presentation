@@ -8,7 +8,9 @@ class RelationalGraphViewModel extends PageViewModel {
   bool get hasData => _data.isNotEmpty;
   List<Widget> typesData = [];
   GraphNode root = GraphNode(data: 'Root', isRoot: true);
+  late String _key;
   ready(BuildContext context, String key) async {
+    _key = key;
     observer.subscribe(key, onLoadData);
   }
 
@@ -42,5 +44,11 @@ class RelationalGraphViewModel extends PageViewModel {
   onLoadData(List<RelationalBinding> data) {
     _data = data;
     drawGraph();
+  }
+
+  @override
+  void dispose() {
+    observer.dispose(_key);
+    super.dispose();
   }
 }

@@ -20,14 +20,18 @@ class RelationalGraphView extends StatelessWidget {
       onViewModelReady: (viewModel) => viewModel.ready(context, observable),
       builder: (context, viewModel, child) => Container(
         color: ThemeStyles.secondaryColor,
-        child: FlowGraphView(
-          enabled: false,
-          root: viewModel.root,
-          direction: orintation,
-          centerLayout: true,
-          builder: (context, node) {
-            return node.data;
-          },
+        child: Visibility(
+          visible: viewModel.hasData,
+          replacement: const Placeholder(),
+          child: FlowGraphView(
+            enabled: false,
+            root: viewModel.root,
+            direction: orintation,
+            centerLayout: true,
+            builder: (context, node) {
+              return node.data;
+            },
+          ),
         ),
       ),
     );
