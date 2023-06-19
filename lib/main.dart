@@ -1,3 +1,4 @@
+import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:domain/models/core_router.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/router/router.dart';
@@ -25,6 +26,10 @@ class MyApp extends StatelessWidget {
 
     return ViewModelBuilder<MainViewModel>.reactive(
       builder: (context, model, child) => MaterialApp.router(
+        localizationsDelegates: [
+          AppFlowyEditorLocalizations.delegate,
+        ],
+        supportedLocales: [Locale('en', 'US')],
         debugShowCheckedModeBanner: false,
         routerConfig: internalRouter.router,
       ),

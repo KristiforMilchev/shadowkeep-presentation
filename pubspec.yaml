@@ -56,6 +56,8 @@ dependencies:
   flow_graph:
     git:
       url: "https://github.com/KristiforMilchev/flow_graph"
+  appflowy_editor: ^1.0.3
+  flutter_quill: ^7.2.7
  
 
 dev_dependencies:

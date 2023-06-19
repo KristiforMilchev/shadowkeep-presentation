@@ -1,6 +1,9 @@
+import 'package:domain/models/book_page.dart';
 import 'package:domain/models/chapter.dart';
 import 'package:domain/models/character.dart';
+import 'package:domain/models/enums.dart';
 import 'package:domain/models/relational_binding.dart';
+import 'package:domain/models/transition_data.dart';
 import 'package:flutter/material.dart';
 import 'package:infrastructure/interfaces/ichapter_service.dart';
 import 'package:infrastructure/interfaces/icharacter_service.dart';
@@ -49,7 +52,10 @@ class OpenBookViewModel extends PageViewModel {
           content: ChapterWrapper(
             pageData: pages
                 .map(
-                  (e) => PageCard(page: e),
+                  (e) => PageCard(
+                      page: e,
+                      deleteCallback: onPageDeleted,
+                      editCallback: onPageEdited),
                 )
                 .toList(),
           ),
@@ -59,4 +65,16 @@ class OpenBookViewModel extends PageViewModel {
 
     observer.getObserver("chapterGraph").call(bindingData);
   }
+
+  onPageEdited(BookPage page) {
+    router.changePage(
+      "/open-editor",
+      _context,
+      TransitionData(
+        next: PageTransition.slideForward,
+      ),
+    );
+  }
+
+  onPageDeleted(BookPage page) {}
 }

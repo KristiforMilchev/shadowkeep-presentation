@@ -4,8 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:presentation/components/custom_button/custom_button.dart';
 
 class PageCard extends StatelessWidget {
+  final Function editCallback;
+  final Function deleteCallback;
   final BookPage page;
-  const PageCard({super.key, required this.page});
+  const PageCard({
+    super.key,
+    required this.page,
+    required this.editCallback,
+    required this.deleteCallback,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +25,19 @@ class PageCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: ThemeStyles.secondaryColor,
-                    borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(8),
-                    ),
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: ThemeStyles.secondaryColor,
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(8),
                   ),
-                  child: Icon(
-                    Icons.insert_drive_file_rounded,
-                    color: ThemeStyles.fontPrimary,
-                    size: 18,
-                  )),
+                ),
+                child: const Icon(
+                  Icons.insert_drive_file_rounded,
+                  color: ThemeStyles.fontPrimary,
+                  size: 18,
+                ),
+              ),
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -46,7 +54,7 @@ class PageCard extends StatelessWidget {
                         color: ThemeStyles.actionColor,
                         size: 18,
                       ),
-                      callback: () {},
+                      callback: () => editCallback.call(page),
                     ),
                     CustomButton(
                       widget: const Icon(
@@ -54,7 +62,7 @@ class PageCard extends StatelessWidget {
                         color: ThemeStyles.actionColor,
                         size: 18,
                       ),
-                      callback: () {},
+                      callback: () => deleteCallback.call(page),
                     )
                   ],
                 ),
