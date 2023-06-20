@@ -193,6 +193,15 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
+//Value Computed by CMake
+pasteboard_BINARY_DIR:STATIC=/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/pasteboard
+
+//Value Computed by CMake
+pasteboard_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+pasteboard_SOURCE_DIR:STATIC=/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux/flutter/ephemeral/.plugin_symlinks/pasteboard/linux
+
 //Path to a library.
 pkgcfg_lib_GIO_gio-2.0:FILEPATH=/usr/lib/libgio-2.0.so
 
@@ -245,6 +254,15 @@ pkgcfg_lib_GTK_pangocairo-1.0:FILEPATH=/usr/lib/libpangocairo-1.0.so
 pkgcfg_lib_GTK_z:FILEPATH=/usr/lib/libz.so
 
 //Value Computed by CMake
+rich_clipboard_linux_BINARY_DIR:STATIC=/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/rich_clipboard_linux
+
+//Value Computed by CMake
+rich_clipboard_linux_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+rich_clipboard_linux_SOURCE_DIR:STATIC=/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux/flutter/ephemeral/.plugin_symlinks/rich_clipboard_linux/linux
+
+//Value Computed by CMake
 runner_BINARY_DIR:STATIC=/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug
 
 //Value Computed by CMake
@@ -252,6 +270,15 @@ runner_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 runner_SOURCE_DIR:STATIC=/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux
+
+//Value Computed by CMake
+url_launcher_linux_BINARY_DIR:STATIC=/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/url_launcher_linux
+
+//Value Computed by CMake
+url_launcher_linux_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+url_launcher_linux_SOURCE_DIR:STATIC=/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux/linux
 
 
 ########################
@@ -344,7 +371,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

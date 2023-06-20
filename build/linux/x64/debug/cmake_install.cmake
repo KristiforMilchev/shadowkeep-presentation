@@ -68,7 +68,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation"
-         OLD_RPATH "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux/flutter/ephemeral:"
+         OLD_RPATH "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/pasteboard:/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/rich_clipboard_linux:/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/url_launcher_linux:/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/linux/flutter/ephemeral:"
          NEW_RPATH "$ORIGIN/lib")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/llvm-strip" "$ENV{DESTDIR}/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/presentation")
@@ -101,6 +101,42 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/lib/libpasteboard_plugin.so")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/pasteboard/libpasteboard_plugin.so")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/lib/librich_clipboard_linux_plugin.so")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/rich_clipboard_linux/librich_clipboard_linux_plugin.so")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/lib/liburl_launcher_linux_plugin.so")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  file(INSTALL DESTINATION "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/lib" TYPE FILE FILES "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/url_launcher_linux/liburl_launcher_linux_plugin.so")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Runtime" OR NOT CMAKE_INSTALL_COMPONENT)
   
   file(REMOVE_RECURSE "/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets")
   
@@ -121,6 +157,9 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/flutter/cmake_install.cmake")
+  include("/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/pasteboard/cmake_install.cmake")
+  include("/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/rich_clipboard_linux/cmake_install.cmake")
+  include("/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/plugins/url_launcher_linux/cmake_install.cmake")
 
 endif()
 

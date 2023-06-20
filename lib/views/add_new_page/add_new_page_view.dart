@@ -79,6 +79,7 @@ class AddNewPageView extends StatelessWidget {
             ),
             Expanded(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     "Chapter name",
