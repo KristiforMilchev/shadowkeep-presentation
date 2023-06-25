@@ -10,9 +10,13 @@ class SplashViewModel extends BaseViewModel {
   late IPageRouterService _routerService;
   late BuildContext _context;
 
+  List<String> myLongClassName = [];
+
   ready(BuildContext context) {
     _context = context;
     _routerService = getIt.get<IPageRouterService>();
+
+    myLongClassName.forEach((element) {});
   }
 
   void routeToAction() {

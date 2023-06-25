@@ -26,10 +26,10 @@ class MyApp extends StatelessWidget {
 
     return ViewModelBuilder<MainViewModel>.reactive(
       builder: (context, model, child) => MaterialApp.router(
-        localizationsDelegates: [
+        localizationsDelegates: const [
           AppFlowyEditorLocalizations.delegate,
         ],
-        supportedLocales: [Locale('en', 'US')],
+        supportedLocales: const [Locale('en', 'US')],
         debugShowCheckedModeBanner: false,
         routerConfig: internalRouter.router,
       ),

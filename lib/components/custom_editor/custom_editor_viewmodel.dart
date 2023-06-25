@@ -1,72 +1,62 @@
-import 'dart:async';
-
+import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:stacked/stacked.dart';
 
 class CustomEditorViewModel extends BaseViewModel {
-  List<String> _lines = [];
-  List<String> get lines => _lines;
+  EditorState _state = EditorState.blank();
+  EditorState get state => _state;
 
   FocusNode _editorNode = FocusNode();
-  get editorNode => _editorNode;
+  FocusNode get editorNode => _editorNode;
 
-  double _opacity = 0;
-  double get opacity => _opacity;
+  ScrollController _scrollController = ScrollController();
+  ScrollController get scrollController => _scrollController;
 
   ready() {
-    Timer.periodic(
-      Duration(milliseconds: 500),
-      (timer) {
-        _opacity = _opacity == 0.9 ? 0.1 : 0.9;
-        notifyListeners();
-      },
+    _editorNode.requestFocus();
+  }
+
+  void onEditorSelected() {
+    _editorNode.requestFocus();
+  }
+
+  void onEditorStateChange(EditorState editorState) {}
+
+  formatHeading(int level) {
+    final node = state.getNodeAtPath(state.selection!.start.path)!;
+    final isHighlight =
+        node.type == 'heading' && node.attributes['level'] == level;
+    state.formatNode(
+      state.selection,
+      (node) => node.copyWith(
+        type: isHighlight ? ParagraphBlockKeys.type : HeadingBlockKeys.type,
+        attributes: {
+          HeadingBlockKeys.level: level,
+          HeadingBlockKeys.backgroundColor:
+              node.attributes[blockComponentBackgroundColor],
+          'delta': (node.delta ?? Delta()).toJson(),
+        },
+      ),
     );
   }
 
-  actionPressed() {}
+  formatQuoute() {
+    final node = state.getNodeAtPath(state.selection!.start.path)!;
+    final isHighlight = node.type == 'quote';
 
-  onKeyPressed(RawKeyEvent key) {
-    print(key.character);
-
-    if (key.logicalKey.keyLabel == "Enter") {
-      if (key is RawKeyDownEvent) {
-        _lines.add("");
-        notifyListeners();
-      }
-    }
-    if (key.logicalKey.keyLabel == "Backspace") {
-      if (_lines.last.isEmpty) {
-        _lines.remove(_lines.last);
-      }
-
-      if (key is RawKeyDownEvent) {
-        if (key.isControlPressed) {
-          var zoneList = _lines.last.split(" ").toList();
-          var mutated = "";
-          zoneList.take(zoneList.length - 2).map((e) {
-            mutated += "${e} ";
-          }).toList();
-          _lines.last = mutated;
-        } else {
-          _lines.last = _lines.last.substring(0, _lines.last.length - 1);
-        }
-
-        notifyListeners();
-      }
-
-      return;
-    }
-
-    if (key.character != null) {
-      if (_lines.isEmpty) _lines.add("");
-      lines.last += key.character!;
-    }
-    notifyListeners();
+    state.formatNode(
+      state.selection,
+      (node) => node.copyWith(
+        type: isHighlight ? 'paragraph' : 'quote',
+        attributes: {
+          'delta': (node.delta ?? Delta()).toJson(),
+        },
+      ),
+    );
   }
 
-  void editorSelected() {
-    _editorNode.requestFocus();
-    notifyListeners();
+  getEditorState() {
+    _state = EditorState.blank();
+    return _state;
   }
 }
