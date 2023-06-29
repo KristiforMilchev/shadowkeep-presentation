@@ -212,6 +212,18 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "easy_isolate",
+      "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/easy_isolate-1.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "editor",
+      "rootUri": "file:///home/kristifor/Projects/editor",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "equatable",
       "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/equatable-2.0.5",
       "packageUri": "lib/",
@@ -626,6 +638,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "responsive_row",
+      "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/responsive_row-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "rich_clipboard",
       "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/rich_clipboard-1.0.1",
       "packageUri": "lib/",
@@ -908,7 +926,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-06-21T15:19:17.818469Z",
+  "generated": "2023-06-29T16:24:50.389294Z",
   "generator": "pub",
   "generatorVersion": "3.1.0-180.0.dev"
 }
