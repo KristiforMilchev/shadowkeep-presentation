@@ -1,7 +1,7 @@
 import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/components/custom_editor/custom_editor.dart';
 import 'package:presentation/views/add_new_page/add_new_page_viewmodel.dart';
+import 'package:shadowkeep_editor/main.dart';
 import 'package:stacked/stacked.dart';
 
 class AddNewPageView extends StatelessWidget {
@@ -13,9 +13,9 @@ class AddNewPageView extends StatelessWidget {
       viewModelBuilder: () => AddNewPageViewModel(),
       builder: (context, viewModel, child) => Material(
         color: ThemeStyles.secondaryColor,
-        child: Row(
+        child: const Row(
           children: [
-            const Expanded(
+            Expanded(
               child: Placeholder(),
               // child: Column(
               //   children: [
@@ -103,7 +103,10 @@ class AddNewPageView extends StatelessWidget {
                   //   ],
                   // ),
 
-                  const Expanded(child: CustomEditor())
+                  Expanded(
+                    child: Scaffold(
+                        backgroundColor: Colors.transparent, body: Editor()),
+                  )
                 ],
               ),
             ),
