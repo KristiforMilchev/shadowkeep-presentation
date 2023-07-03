@@ -218,12 +218,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "editor",
-      "rootUri": "file:///home/kristifor/Projects/editor",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
       "name": "equatable",
       "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/equatable-2.0.5",
       "packageUri": "lib/",
@@ -692,6 +686,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "shadowkeep_editor",
+      "rootUri": "../shadowkeep-editor",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "shelf",
       "rootUri": "file:///home/kristifor/.pub-cache/hosted/pub.dev/shelf-1.4.1",
       "packageUri": "lib/",
@@ -926,7 +926,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-06-29T16:24:50.389294Z",
+  "generated": "2023-07-03T15:12:01.279603Z",
   "generator": "pub",
   "generatorVersion": "3.1.0-180.0.dev"
 }

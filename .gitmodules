@@ -7,3 +7,6 @@
 [submodule "shadowkeep-application"]
 	path = shadowkeep-application
 	url = git@github.com:KristiforMilchev/shadowkeep-application.git
+[submodule "shadowkeep-editor"]
+	path = shadowkeep-editor
+	url = git@github.com:KristiforMilchev/shadowkeep-editor.git

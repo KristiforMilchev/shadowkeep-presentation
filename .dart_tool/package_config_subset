@@ -574,10 +574,6 @@ yaml
 2.19
 file:///home/kristifor/.pub-cache/hosted/pub.dev/yaml-3.1.2/
 file:///home/kristifor/.pub-cache/hosted/pub.dev/yaml-3.1.2/lib/
-editor
-2.17
-file:///home/kristifor/Projects/editor/
-file:///home/kristifor/Projects/editor/lib/
 presentation
 3.0
 file:///home/kristifor/Projects/shadowkeep/shadowkeep-presentation/
@@ -590,6 +586,10 @@ domain
 3.0
 file:///home/kristifor/Projects/shadowkeep/shadowkeep-presentation/shadowkeep-domain/
 file:///home/kristifor/Projects/shadowkeep/shadowkeep-presentation/shadowkeep-domain/lib/
+shadowkeep_editor
+3.0
+file:///home/kristifor/Projects/shadowkeep/shadowkeep-presentation/shadowkeep-editor/
+file:///home/kristifor/Projects/shadowkeep/shadowkeep-presentation/shadowkeep-editor/lib/
 infrastructure
 3.0
 file:///home/kristifor/Projects/shadowkeep/shadowkeep-presentation/shadowkeep-infrastructure/
