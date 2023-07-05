@@ -1,9 +1,8 @@
 import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/components/custom_icon_button/custom_icon_button.dart';
-import 'package:presentation/components/custom_text_field/custom_text_field.dart';
 import 'package:presentation/views/add_new_page/add_new_page_viewmodel.dart';
-import 'package:shadowkeep_editor/main.dart';
+import 'package:presentation/views/add_new_page/panels/ai_promp_manager.dart';
+import 'package:presentation/views/add_new_page/panels/page_editor.dart';
 import 'package:stacked/stacked.dart';
 
 class AddNewPageView extends StatelessWidget {
@@ -17,123 +16,8 @@ class AddNewPageView extends StatelessWidget {
         color: ThemeStyles.secondaryColor,
         child: Row(
           children: [
-            Expanded(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "Prompt",
-                        style: ThemeStyles.innerHeading,
-                      ),
-                      const Icon(
-                        Icons.question_mark_outlined,
-                        size: 20,
-                        color: ThemeStyles.fontPrimary,
-                      )
-                    ],
-                  ),
-                  CustomTextField(
-                    height: 300,
-                    floatingLabel: "",
-                    onChange: viewModel.onPromptChanged,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomIconButton(
-                        icon: const Icon(
-                          Icons.cloud_sync_sharp,
-                          color: ThemeStyles.actionColor,
-                          size: 20,
-                        ),
-                        label: "Generate",
-                        callback: viewModel.onPromptPressed,
-                      )
-                    ],
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: 25,
-                      itemBuilder: (context, index) => Container(
-                        margin: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: ThemeStyles.secondaryColor,
-                        ),
-                        child: const Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [Text("AI"), Text("GPT4")],
-                            ),
-                            Text("some AI response"),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Chapter name",
-                    style: ThemeStyles.regularHeading,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          CustomIconButton(
-                            solidColor: ThemeStyles.mainColor,
-                            icon: const Icon(
-                              Icons.arrow_back,
-                              color: ThemeStyles.actionColor,
-                            ),
-                            label: "",
-                            callback: viewModel.onPreviousPagePressed,
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            "2",
-                            style: ThemeStyles.regularParagraph,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "2",
-                            style: ThemeStyles.regularParagraph,
-                          ),
-                          const SizedBox(width: 8),
-                          CustomIconButton(
-                            solidColor: ThemeStyles.mainColor,
-                            icon: const Icon(
-                              Icons.arrow_forward,
-                              color: ThemeStyles.actionColor,
-                            ),
-                            label: "",
-                            callback: viewModel.onPreviousPagePressed,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  Expanded(
-                    child: Scaffold(
-                      backgroundColor: ThemeStyles.mainColor,
-                      body: const Editor(),
-                    ),
-                  )
-                ],
-              ),
-            ),
+            AirPromptManager(vm: viewModel),
+            PageEditor(vm: viewModel),
             Expanded(
               child: Placeholder(),
             )
