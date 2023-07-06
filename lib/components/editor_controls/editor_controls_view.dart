@@ -25,6 +25,7 @@ class EditorControls extends StatelessWidget {
           children: [
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Undo",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.undo,
@@ -36,6 +37,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Redo",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.redo,
@@ -47,6 +49,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Copy",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.copy,
@@ -58,6 +61,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Paste",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.paste,
@@ -69,6 +73,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Text align left",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.align_horizontal_left,
@@ -80,6 +85,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Text align center",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.align_vertical_center,
@@ -91,6 +97,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Text align right",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.align_horizontal_right,
@@ -102,6 +109,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Create list 1,2,3",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.list_alt,
@@ -113,6 +121,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Create bullet list * * *",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.format_list_bulleted_rounded,
@@ -124,6 +133,8 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage:
+                  "Wraps the selection in double quoutes (Wraps the line in case of selection is empty)",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.format_quote,
@@ -136,6 +147,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Bold",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.format_bold,
@@ -147,6 +159,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Underline text",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.format_underline,
@@ -158,6 +171,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Selects all the text",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.select_all,
@@ -169,6 +183,7 @@ class EditorControls extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             CustomIconButton(
+              tooltipMessage: "Deletes the selection or a single character",
               solidColor: ThemeStyles.mainColor,
               icon: const Icon(
                 Icons.delete_sweep_rounded,

@@ -22,9 +22,10 @@ class FontSizeControls extends StatelessWidget {
         ),
         child: Row(children: [
           CustomIconButton(
+            tooltipMessage: "Decreases the font sie",
             solidColor: ThemeStyles.mainColor,
             icon: const Icon(
-              Icons.text_decrease,
+              Icons.remove,
               color: ThemeStyles.actionColor,
               size: 30,
             ),
@@ -45,9 +46,10 @@ class FontSizeControls extends StatelessWidget {
             ),
           ),
           CustomIconButton(
+            tooltipMessage: "Increase the font size",
             solidColor: ThemeStyles.mainColor,
             icon: const Icon(
-              Icons.text_increase,
+              Icons.add,
               color: ThemeStyles.actionColor,
               size: 30,
             ),

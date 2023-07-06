@@ -38,6 +38,7 @@ class PageEditor extends StatelessWidget {
                   ),
                 ),
                 child: CustomIconButton(
+                  tooltipMessage: "Go to previous page",
                   solidColor: ThemeStyles.mainColor,
                   icon: const Icon(
                     Icons.arrow_back,
@@ -66,6 +67,7 @@ class PageEditor extends StatelessWidget {
                   ),
                 ),
                 child: CustomIconButton(
+                  tooltipMessage: "Open next page",
                   solidColor: ThemeStyles.mainColor,
                   icon: const Icon(
                     Icons.arrow_forward,

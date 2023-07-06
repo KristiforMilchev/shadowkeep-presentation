@@ -18,7 +18,7 @@ class AddNewPageView extends StatelessWidget {
           children: [
             AirPromptManager(vm: viewModel),
             PageEditor(vm: viewModel),
-            Expanded(
+            const Expanded(
               child: Placeholder(),
             )
           ],
