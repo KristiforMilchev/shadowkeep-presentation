@@ -2,6 +2,7 @@ import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/components/custom_icon_button/custom_icon_button.dart';
 import 'package:presentation/components/editor_controls/editor_controls_view.dart';
+import 'package:presentation/components/font_dropdown/font_dropdown_view.dart';
 import 'package:presentation/components/font_size_controls/font_size_controls_view.dart';
 import 'package:presentation/views/add_new_page/add_new_page_viewmodel.dart';
 import 'package:shadowkeep_editor/main.dart';
@@ -49,7 +50,7 @@ class PageEditor extends StatelessWidget {
             ),
             const Row(
               children: [
-                //FontDropdown(),
+                FontDropdown(),
                 SizedBox(width: 16),
                 EditorControls(),
                 SizedBox(width: 16),
