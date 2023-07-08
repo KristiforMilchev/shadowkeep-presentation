@@ -1,7 +1,6 @@
 import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/components/custom_button/custom_button.dart';
-import 'package:presentation/components/custom_icon_button/custom_icon_button.dart';
+import 'package:presentation/components/custom_dropdown/custoom_dropdown_view.dart';
 import 'package:presentation/components/font_dropdown/font_dropdown_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
@@ -12,6 +11,7 @@ class FontDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => FontDropdownViewModel(),
+      onViewModelReady: (viewModel) => viewModel.ready(),
       builder: (context, viewModel, child) => Container(
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
@@ -21,29 +21,27 @@ class FontDropdown extends StatelessWidget {
             topRight: Radius.circular(8),
           ),
         ),
-        child: CustomButton(
-          widget: Row(
-            children: [
-              const Icon(
-                Icons.font_download,
-                color: ThemeStyles.actionColor,
-                size: 30,
-              ),
-              const SizedBox(width: 8),
-              Text(
-                viewModel.activeFont,
-                style: ThemeStyles.regularParagraph,
-              ),
-              const SizedBox(width: 8),
-              const Icon(
-                Icons.arrow_drop_down_rounded,
-                color: ThemeStyles.actionColor,
-                size: 30,
-              ),
-            ],
-          ),
-          callback: viewModel.openFontDropdown,
+        foregroundDecoration: BoxDecoration(
+          color: Colors.transparent,
         ),
+        child: CustomDropdown(
+            onChanged: viewModel.onChanged,
+            buttonDecoration: const BoxDecoration(
+              color: Colors.transparent,
+            ),
+            dropdownDecoration: BoxDecoration(color: ThemeStyles.mainColor),
+            maxHeight: 400,
+            dropdownHeight: 400,
+            dropdownWidth: 300,
+            buttonHeight: 30,
+            iconEnabledColor: ThemeStyles.fontPrimary,
+            icon: const Icon(
+              Icons.arrow_drop_down,
+              size: 22,
+            ),
+            content: viewModel.getFonts,
+            hint: "Pick a font",
+            value: viewModel.getFonts.first.key),
       ),
     );
   }

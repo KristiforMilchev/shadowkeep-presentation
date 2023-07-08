@@ -10,7 +10,9 @@
 /home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets/packages/flutter_dropzone_web/assets/flutter_dropzone.js
 /home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets/packages/domain/assets/fonts/Lato-Bold.ttf
 /home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets/packages/domain/assets/fonts/Lato-ThinItalic.ttf
+/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets/packages/domain/assets/fonts/Roboto-Black.ttf
 /home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets/packages/domain/assets/fonts/Lato-BoldItalic.ttf
+/home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets/packages/domain/assets/fonts/Roboto-BlackItalic.ttf
 /home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets/packages/domain/assets/fonts/Lato-Light.ttf
 /home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets/packages/domain/assets/fonts/Lato-LightItalic.ttf
 /home/kristifor/Projects/shadowkeep/shadowkeep-presentation/build/linux/x64/debug/bundle/data/flutter_assets/packages/domain/assets/fonts/Lato-Black.ttf

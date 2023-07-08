@@ -37,7 +37,7 @@ class CustomTextField extends StatelessWidget {
   TextEditingController? controller;
   bool enabled;
   TextInputType? restricted;
-
+  int? lineConstaint;
   CustomTextField({
     super.key,
     this.enabled = true,
@@ -67,12 +67,13 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.prefixIcon,
     this.restricted,
+    this.lineConstaint,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      maxLines: 10,
+      maxLines: lineConstaint,
       keyboardType: restricted,
       controller: controller,
       onChanged: (value) => onChange.call(value),

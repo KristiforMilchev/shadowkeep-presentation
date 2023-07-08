@@ -10,32 +10,66 @@ class AirPromptManager extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        children: [
-          SizedBox(
-            child: CustomTextField(
-              floatingLabel: "Enter your prompt",
-              onChange: vm.onPromptChanged,
-            ),
+    return Column(
+      children: [
+        SizedBox(
+          child: CustomTextField(
+            lineConstaint: 10,
+            floatingLabel: "Enter your prompt",
+            onChange: vm.onPromptChanged,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomIconButton(
+        ),
+        const SizedBox(height: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                color: ThemeStyles.mainColor,
+                borderRadius: BorderRadius.circular(2),
+              ),
+              child: CustomIconButton(
+                solidColor: ThemeStyles.mainColor,
                 icon: const Icon(
-                  Icons.cloud_sync_sharp,
+                  Icons.cloud_circle,
                   color: ThemeStyles.actionColor,
-                  size: 20,
+                  size: 30,
                 ),
                 label: "Generate",
                 callback: vm.onPromptPressed,
-              )
-            ],
-          ),
-          Expanded(
+              ),
+            )
+          ],
+        ),
+        const SizedBox(height: 16),
+        Expanded(
+          child: Visibility(
+            visible: vm.aiSuggestionstion.isNotEmpty,
+            replacement: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6),
+                color: ThemeStyles.mainColor,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.cloud_off,
+                    color: ThemeStyles.fontPrimary,
+                    size: 40,
+                  ),
+                  Text(
+                    "It's empty here",
+                    style: ThemeStyles.regularHeading,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
             child: ListView.builder(
-              itemCount: 25,
+              itemCount: vm.aiSuggestionstion.length,
               itemBuilder: (context, index) => Container(
                 margin: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -124,9 +158,9 @@ class AirPromptManager extends StatelessWidget {
                 ),
               ),
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

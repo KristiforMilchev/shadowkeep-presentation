@@ -11,6 +11,7 @@ import 'package:get_it/get_it.dart';
 import 'package:infrastructure/interfaces/ibook_service.dart';
 import 'package:infrastructure/interfaces/ichapter_service.dart';
 import 'package:infrastructure/interfaces/icharacter_service.dart';
+import 'package:infrastructure/interfaces/ifont_manager.dart';
 import 'package:infrastructure/interfaces/iobserver.dart';
 import 'package:infrastructure/interfaces/ipage_router_service.dart';
 import 'package:infrastructure/interfaces/ipage_service.dart';
@@ -26,7 +27,7 @@ void registerDependency() {
   getIt.registerSingleton<IChapterService>(MockChapterService());
   getIt.registerSingleton<IPageService>(MockPageService());
   getIt.registerSingleton<ICharacterService>(MockCharacterService());
-
+  getIt.registerFactory(() => IFontManager);
   //TODO remove this after authentication is implemented
   getIt.get<ISessionManager>().projectId = 1;
 }
