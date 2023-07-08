@@ -26,12 +26,6 @@ class AddNewPageViewModel extends PageViewModel {
 
   ready(BuildContext context) async {
     _context = context;
-    await Future.delayed(Duration(seconds: 5), () async {
-      _fontManager = FontManager();
-      await _fontManager.loadFontFromFile("", "Lobster-Regular");
-
-      _fontLoaded = "Lobster-Regular";
-    });
     _characterService = getIt.get<ICharacterService>();
     await loadCharacters();
     notifyListeners();
