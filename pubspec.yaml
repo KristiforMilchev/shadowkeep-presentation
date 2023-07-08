@@ -155,4 +155,30 @@ flutter:
         - asset: packages/domain/assets/fonts/Lato-Thin.ttf
         - asset: packages/domain/assets/fonts/Lato-ThinItalic.ttf
           style: italic
-    
+    - family: Akatab-Black
+      fonts:
+        - asset: packages/domain/assets/fonts/Akatab-Regular.ttf
+        - asset: packages/domain/assets/fonts/Akatab-Bold.ttf
+        - asset: packages/domain/assets/fonts/Akatab-ExtraBold.ttf
+        - asset: packages/domain/assets/fonts/Akatab-Medium.ttf
+        - asset: packages/domain/assets/fonts/Akatab-SemiBold.ttf
+    - family:  YsabeauInfant 
+      fonts:
+        - asset: packages/domain/assets/fonts/YsabeauInfant-Italic-VariableFont_wght.ttf
+        - asset: packages/domain/assets/fonts/YsabeauInfant-VariableFont_wght.ttf
+    - family: Ubuntu
+      fonts:
+        - asset: packages/domain/assets/fonts/Ubuntu-Regular.ttf
+        - asset: packages/domain/assets/fonts/Ubuntu-Bold.ttf
+        - asset: packages/domain/assets/fonts/Ubuntu-BoldItalic.ttf
+          style: italic
+        - asset: packages/domain/assets/fonts/Ubuntu-Italic.ttf
+          style: italic
+        - asset: packages/domain/assets/fonts/Ubuntu-Light.ttf
+        - asset: packages/domain/assets/fonts/Ubuntu-LightIt.ttf
+          style: italic
+        - asset: packages/domain/assets/fonts/Ubuntu-Medium.ttf
+    - family:  PlayfairDisplay
+      fonts:
+        - asset: packages/domain/assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf
+        - asset: packages/domain/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf
