@@ -21,33 +21,23 @@ class AddNewPageView extends StatelessWidget {
           child: Column(
             children: [
               const NavBarInner(),
-              Text(
-                viewModel.fontLoaded != null
-                    ? "Apparently motionless"
-                    : "Apparently motionless",
-                style: TextStyle(
-                  fontSize: 40,
-                  fontFamily: viewModel.fontLoaded,
-                  fontFamilyFallback: ["Loto"],
-                ),
-              ),
               Expanded(
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       flex: 1,
-                      child: AirPromptManager(vm: viewModel),
+                      child: AirPromptManager(),
                     ),
                     Expanded(
                       flex: 2,
                       child: Container(
                         margin: const EdgeInsets.fromLTRB(100, 0, 100, 0),
-                        child: PageEditor(vm: viewModel),
+                        child: const PageEditor(),
                       ),
                     ),
-                    Expanded(
+                    const Expanded(
                       flex: 1,
-                      child: MentionedList(vm: viewModel),
+                      child: MentionedList(),
                     )
                   ],
                 ),

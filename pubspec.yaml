@@ -175,8 +175,6 @@ flutter:
         - asset: packages/domain/assets/fonts/Ubuntu-Italic.ttf
           style: italic
         - asset: packages/domain/assets/fonts/Ubuntu-Light.ttf
-        - asset: packages/domain/assets/fonts/Ubuntu-LightIt.ttf
-          style: italic
         - asset: packages/domain/assets/fonts/Ubuntu-Medium.ttf
     - family:  PlayfairDisplay
       fonts:
