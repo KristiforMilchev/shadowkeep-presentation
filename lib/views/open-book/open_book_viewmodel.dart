@@ -63,7 +63,7 @@ class OpenBookViewModel extends PageViewModel {
       );
     }
 
-    observer.getObserver("chapterGraph").call(bindingData);
+    observer.getObserver("chapterGraph", bindingData);
   }
 
   onPageEdited(BookPage page) {

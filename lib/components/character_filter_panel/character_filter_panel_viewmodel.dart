@@ -46,6 +46,6 @@ class CharacterFilterPanelViewModel extends PageViewModel {
         ),
       );
     }
-    await observer.getObserver("characterGraph").call(bindingData);
+    observer.getObserver("characterGraph", bindingData);
   }
 }
