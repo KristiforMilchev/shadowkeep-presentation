@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:domain/models/core_router.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +28,7 @@ class MyApp extends StatelessWidget {
 
     return ViewModelBuilder<MainViewModel>.reactive(
       builder: (context, model, child) => MaterialApp.router(
+        scrollBehavior: MyCustomScrollBehavior(),
         localizationsDelegates: const [
           AppFlowyEditorLocalizations.delegate,
         ],
@@ -40,4 +43,14 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.unknown,
+      };
 }

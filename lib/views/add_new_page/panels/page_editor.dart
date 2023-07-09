@@ -15,6 +15,7 @@ class PageEditor extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => PageEditorViewModel(),
+      onViewModelReady: (viewModel) => viewModel.ready(context),
       builder: (context, viewModel, child) => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -50,13 +51,16 @@ class PageEditor extends StatelessWidget {
                   callback: viewModel.onPreviousPagePressed,
                 ),
               ),
-              const Row(
+              Row(
                 children: [
-                  FontDropdown(),
-                  SizedBox(width: 16),
-                  EditorControls(),
-                  SizedBox(width: 16),
-                  FontSizeControls(),
+                  const FontDropdown(),
+                  const SizedBox(width: 16),
+                  SizedBox(
+                    width: viewModel.calculateWidth(),
+                    child: const EditorControls(),
+                  ),
+                  const SizedBox(width: 16),
+                  const FontSizeControls(),
                 ],
               ),
               Container(

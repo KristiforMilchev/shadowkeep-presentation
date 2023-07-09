@@ -31,7 +31,7 @@ class AddNewPageView extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        margin: const EdgeInsets.fromLTRB(100, 0, 100, 0),
+                        margin: viewModel.applyMargin(),
                         child: const PageEditor(),
                       ),
                     ),
