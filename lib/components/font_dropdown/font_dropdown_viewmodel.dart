@@ -6,7 +6,6 @@ import 'package:presentation/page_view_model.dart';
 
 class FontDropdownViewModel extends PageViewModel {
   late IFontManager _fontManager;
-
   get activeFont => "Lotto Normal";
 
   List<({Widget content, String key})> _fonts = [];
