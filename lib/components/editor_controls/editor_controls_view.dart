@@ -54,6 +54,18 @@ class EditorControls extends StatelessWidget {
                   ),
                   const SizedBox(width: 8),
                   CustomIconButton(
+                    tooltipMessage: "Save file",
+                    solidColor: ThemeStyles.mainColor,
+                    icon: const Icon(
+                      Icons.save,
+                      color: ThemeStyles.actionColor,
+                      size: 30,
+                    ),
+                    label: "",
+                    callback: () => viewModel.onCmdPressed(EditorCommand.save),
+                  ),
+                  const SizedBox(width: 8),
+                  CustomIconButton(
                     tooltipMessage: "Copy",
                     solidColor: ThemeStyles.mainColor,
                     icon: const Icon(
@@ -148,6 +160,20 @@ class EditorControls extends StatelessWidget {
                     solidColor: ThemeStyles.mainColor,
                     icon: const Icon(
                       Icons.format_quote,
+                      color: ThemeStyles.actionColor,
+                      size: 30,
+                    ),
+                    label: "",
+                    callback: () =>
+                        viewModel.onCmdPressed(EditorCommand.wrapDoubleQuoute),
+                  ),
+                  const SizedBox(width: 8),
+                  CustomIconButton(
+                    tooltipMessage:
+                        "Wraps the selection in single quoutes (Wraps the line in case of selection is empty)",
+                    solidColor: ThemeStyles.mainColor,
+                    icon: const Icon(
+                      Icons.format_quote_outlined,
                       color: ThemeStyles.actionColor,
                       size: 30,
                     ),
