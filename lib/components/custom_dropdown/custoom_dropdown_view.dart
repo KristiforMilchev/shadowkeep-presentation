@@ -85,10 +85,10 @@ class CustomDropdown extends StatelessWidget {
                   child: data.content,
                 ))
             .toList(),
-        onChanged: (data) => onChanged.call(),
+        onChanged: (data) => onChanged.call(data),
         selectedItemBuilder: selectedItemBuilder,
         buttonStyleData: ButtonStyleData(
-          overlayColor: MaterialStatePropertyAll(Colors.transparent),
+          overlayColor: const MaterialStatePropertyAll(Colors.transparent),
           height: buttonHeight ?? 40,
           width: buttonWidth ?? 140,
           padding: buttonPadding ?? const EdgeInsets.only(left: 14, right: 14),
