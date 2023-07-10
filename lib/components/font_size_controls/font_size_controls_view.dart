@@ -1,3 +1,4 @@
+import 'package:domain/models/enums.dart';
 import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/components/custom_icon_button/custom_icon_button.dart';
@@ -11,6 +12,7 @@ class FontSizeControls extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => FontSizeControlsViewModel(),
+      onViewModelReady: (viewModel) => viewModel.ready(),
       builder: (context, viewModel, child) => Container(
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
@@ -30,7 +32,7 @@ class FontSizeControls extends StatelessWidget {
               size: 30,
             ),
             label: "",
-            callback: viewModel.decreaseFont,
+            callback: () => viewModel.executeCommand(EditorCommand.decreseFont),
           ),
           Container(
             padding: const EdgeInsets.all(5),
@@ -54,7 +56,8 @@ class FontSizeControls extends StatelessWidget {
               size: 30,
             ),
             label: "",
-            callback: viewModel.decreaseFont,
+            callback: () =>
+                viewModel.executeCommand(EditorCommand.increaseFont),
           ),
         ]),
       ),
