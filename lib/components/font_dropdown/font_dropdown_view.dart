@@ -11,7 +11,7 @@ class FontDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => FontDropdownViewModel(),
-      onViewModelReady: (viewModel) => viewModel.ready(),
+      onViewModelReady: (viewModel) => viewModel.ready(context),
       builder: (context, viewModel, child) => Container(
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
