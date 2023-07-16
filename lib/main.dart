@@ -4,8 +4,8 @@ import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:domain/models/core_router.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/router/router.dart';
-
 import 'package:stacked/stacked.dart';
+
 import 'locator.dart' as locator;
 import 'main_viewmodel.dart';
 

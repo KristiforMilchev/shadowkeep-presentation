@@ -85,10 +85,45 @@ class PageEditor extends StatelessWidget {
               ),
             ],
           ),
+          Container(
+            height: 35,
+            width: double.infinity,
+            color: ThemeStyles.mainColor,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 22,
+                  color: ThemeStyles.actionColor,
+                  width: viewModel.pageWidth,
+                  child: GestureDetector(
+                    onHorizontalDragUpdate: (details) =>
+                        viewModel.dragUpdated(details),
+                    onHorizontalDragStart: (details) =>
+                        viewModel.dragStarted(details),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            viewModel.pageWidth.toString(),
+                            style: ThemeStyles.whiteParagraph,
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
           Expanded(
-            child: Scaffold(
-              backgroundColor: ThemeStyles.mainColor,
-              body: const Editor(),
+            child: Container(
+              color: ThemeStyles.mainColor,
+              width: viewModel.pageWidth,
+              child: const Editor(),
             ),
           )
         ],
