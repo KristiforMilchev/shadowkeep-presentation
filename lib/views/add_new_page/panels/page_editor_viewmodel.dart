@@ -8,8 +8,18 @@ class PageEditorViewModel extends PageViewModel {
   double _pageWidth = 1500;
   double get pageWidth => _pageWidth;
 
+  double _popupX = 0;
+  double _popupY = 0;
+
+  double get popupX => _popupX;
+  double get poupY => _popupY;
+
+  bool _isSuggestionOpen = false;
+  get isSuggestionOpen => _isSuggestionOpen;
+
   ready(BuildContext context) {
     _context = context;
+    observer.subscribe('open_reference_box', onRefBoxRequest);
   }
 
   onPreviousPagePressed() {}
@@ -34,11 +44,6 @@ class PageEditorViewModel extends PageViewModel {
     notifyListeners();
   }
 
-  dragStarted(DragStartDetails details) {
-    //   print(details.kind);
-    //   print(details.localPosition.direction);
-  }
-
   dragUpdated(DragUpdateDetails details) {
     if (details.delta.dx < 0) {
       _pageWidth =
@@ -55,5 +60,21 @@ class PageEditorViewModel extends PageViewModel {
     }
     print("${_pageWidth} Page Width");
     print("${_minPageWidth} MIN Width");
+  }
+
+  onRefBoxRequest(GlobalKey key) {
+    RenderBox box = key.currentContext?.findRenderObject() as RenderBox;
+    Offset position = box.localToGlobal(Offset.zero);
+
+    _popupX = (_pageWidth / 2) - 300;
+    _popupY = 180;
+    _isSuggestionOpen = true;
+
+    notifyListeners();
+  }
+
+  onIntlMenuClosed() {
+    _isSuggestionOpen = false;
+    notifyListeners();
   }
 }
