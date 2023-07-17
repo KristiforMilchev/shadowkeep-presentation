@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:domain/models/intellisense_data.dart';
 import 'package:infrastructure/interfaces/icharacter_service.dart';
 import 'package:presentation/page_view_model.dart';
 
@@ -46,5 +47,11 @@ class IntellisenseViewModel extends PageViewModel {
     var selectedValue =
         _intellisenseData.firstWhereOrNull((element) => element.id == id);
     //TODO add business rules
+    if (selectedValue == null) return;
+
+    observer.getObserver(
+      "intellisense_selected",
+      IntellisenseData(type: selectedValue.type, value: selectedValue.name),
+    );
   }
 }
