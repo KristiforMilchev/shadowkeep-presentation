@@ -124,7 +124,7 @@ class PageEditor extends StatelessWidget {
                 child: Container(
                   color: ThemeStyles.mainColor,
                   width: viewModel.pageWidth,
-                  child: const Editor(),
+                  child: Editor(intellisenseData: viewModel.intellisenseData),
                 ),
               )
             ],

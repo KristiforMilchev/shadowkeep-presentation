@@ -1,8 +1,11 @@
+import 'package:domain/models/intellisense_data.dart';
 import 'package:flutter/material.dart';
+import 'package:infrastructure/interfaces/icharacter_service.dart';
 import 'package:presentation/page_view_model.dart';
 
 class PageEditorViewModel extends PageViewModel {
   late BuildContext _context;
+  late ICharacterService _characterService;
   final double _minPageWidth = 600;
   final double _maxPageWidth = 1500;
   double _pageWidth = 1500;
@@ -17,9 +20,20 @@ class PageEditorViewModel extends PageViewModel {
   bool _isSuggestionOpen = false;
   get isSuggestionOpen => _isSuggestionOpen;
 
-  ready(BuildContext context) {
+  List<IntellisenseData> _intellisenseData = [];
+  List<IntellisenseData> get intellisenseData => _intellisenseData;
+
+  ready(BuildContext context) async {
     _context = context;
+    _characterService = getIt.get<ICharacterService>();
+    var data =
+        await _characterService.getRelatedCharacters(sessionManager.bookId);
+    data.map((e) {
+      _intellisenseData.add(IntellisenseData(type: 1, value: e.firstName));
+      _intellisenseData.add(IntellisenseData(type: 1, value: e.lastName));
+    }).toList();
     observer.subscribe('open_reference_box', onRefBoxRequest);
+    notifyListeners();
   }
 
   onPreviousPagePressed() {}
