@@ -4,6 +4,7 @@ import 'package:domain/models/transition_data.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+import 'package:presentation/views/add_new_page/add_new_page_view.dart';
 import 'package:presentation/views/open-book/open_book_view.dart';
 import 'package:presentation/views/splash/splash.view.dart';
 
@@ -68,6 +69,12 @@ class ApplicationRouter {
     (
       "open-book-view",
       const OpenBookView(),
+      1,
+      const Duration(milliseconds: 1200)
+    ),
+    (
+      "open-editor",
+      const AddNewPageView(),
       1,
       const Duration(milliseconds: 1200)
     ),

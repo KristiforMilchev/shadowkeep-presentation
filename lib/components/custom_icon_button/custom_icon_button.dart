@@ -1,6 +1,5 @@
 import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:presentation/components/custom_button/custom_button.dart';
 
 //ignore: must_be_immutable
@@ -17,6 +16,8 @@ class CustomIconButton extends StatelessWidget {
   List<double> stops;
   bool enabled;
   double? height;
+  final String? tooltipMessage;
+
   CustomIconButton({
     super.key,
     required this.label,
@@ -31,11 +32,13 @@ class CustomIconButton extends StatelessWidget {
     this.fontColor = const Color.fromRGBO(255, 255, 255, 0.9),
     this.enabled = true,
     this.height,
+    this.tooltipMessage,
   });
 
   @override
   Widget build(BuildContext context) {
     return CustomButton(
+      tooltipMessage: tooltipMessage,
       enabled: enabled,
       callback: () => enabled ? callback.call() : {},
       widget: Container(

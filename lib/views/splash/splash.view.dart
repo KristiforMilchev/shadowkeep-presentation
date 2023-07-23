@@ -14,8 +14,10 @@ class SplashView extends StatelessWidget {
       onViewModelReady: (viewModel) => viewModel.ready(context),
       builder: (context, viewModel, child) => Container(
         decoration: const BoxDecoration(),
-        child: Splashscreen(
-          callback: viewModel.routeToAction,
+        child: Container(
+          child: Splashscreen(
+            callback: viewModel.routeToAction,
+          ),
         ),
       ),
     );
