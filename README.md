@@ -23,7 +23,7 @@ To get started with Shadowkeep, follow these simple installation steps:
 1. Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/Shadowkeep/Shadowkeep.git
+git clone https://github.com/KristiforMilchev/shadowkeep-presentation
 ```
 
 2. Install the required dependencies.
