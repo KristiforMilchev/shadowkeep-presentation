@@ -23,6 +23,9 @@ class PageEditorViewModel extends PageViewModel {
   List<IntellisenseData> _intellisenseData = [];
   List<IntellisenseData> get intellisenseData => _intellisenseData;
 
+  bool _isSettingsOpen = false;
+  bool get isSettingsOpen => _isSettingsOpen;
+
   ready(BuildContext context) async {
     _context = context;
     _characterService = getIt.get<ICharacterService>();
@@ -32,6 +35,8 @@ class PageEditorViewModel extends PageViewModel {
       _intellisenseData.add(IntellisenseData(type: 1, value: e.firstName));
       _intellisenseData.add(IntellisenseData(type: 1, value: e.lastName));
     }).toList();
+
+    observer.subscribe("activate_settigs_page", onSettingsPressed);
     observer.subscribe('open_reference_box', onRefBoxRequest);
     notifyListeners();
   }
@@ -43,7 +48,7 @@ class PageEditorViewModel extends PageViewModel {
     double width = displaySize.width;
 
     if (width > 1920) {
-      return 500;
+      return 700;
     }
 
     if (width < 1920) {
@@ -72,14 +77,9 @@ class PageEditorViewModel extends PageViewModel {
           _pageWidth >= _maxPageWidth ? _maxPageWidth : _pageWidth + 10;
       notifyListeners();
     }
-    print("${_pageWidth} Page Width");
-    print("${_minPageWidth} MIN Width");
   }
 
   onRefBoxRequest(GlobalKey key) {
-    RenderBox box = key.currentContext?.findRenderObject() as RenderBox;
-    Offset position = box.localToGlobal(Offset.zero);
-
     _popupX = (_pageWidth / 2) - 300;
     _popupY = 180;
     _isSuggestionOpen = true;
@@ -90,5 +90,17 @@ class PageEditorViewModel extends PageViewModel {
   onIntlMenuClosed() {
     _isSuggestionOpen = false;
     notifyListeners();
+  }
+
+  onSettingsPressed() {
+    _isSettingsOpen = !_isSettingsOpen;
+    notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    observer.dispose("activate_settigs_page");
+    observer.dispose("open_reference_box");
+    super.dispose();
   }
 }

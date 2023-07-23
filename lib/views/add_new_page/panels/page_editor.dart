@@ -2,6 +2,7 @@ import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/components/custom_icon_button/custom_icon_button.dart';
 import 'package:presentation/components/editor_controls/editor_controls_view.dart';
+import 'package:presentation/components/editor_settings_panel/editor_settings_panel.dart';
 import 'package:presentation/components/font_dropdown/font_dropdown_view.dart';
 import 'package:presentation/components/font_size_controls/font_size_controls_view.dart';
 import 'package:presentation/components/intellisense_menu/intellisense_menu.dart';
@@ -120,13 +121,16 @@ class PageEditor extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              Expanded(
-                child: Container(
-                  color: ThemeStyles.mainColor,
-                  width: viewModel.pageWidth,
-                  child: Editor(intellisenseData: viewModel.intellisenseData),
+              if (!viewModel.isSettingsOpen)
+                Expanded(
+                  child: Container(
+                    color: ThemeStyles.mainColor,
+                    width: viewModel.pageWidth,
+                    child: Editor(intellisenseData: viewModel.intellisenseData),
+                  ),
                 ),
-              )
+              if (viewModel.isSettingsOpen)
+                EditorSettingsPage(pageWidth: viewModel.pageWidth)
             ],
           ),
           if (viewModel.isSuggestionOpen)

@@ -1,18 +1,27 @@
-import 'package:domain/models/enums.dart';
 import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/components/custom_icon_button/custom_icon_button.dart';
-import 'package:presentation/components/font_size_controls/font_size_controls_viewmodel.dart';
+import 'package:presentation/components/size_control.dart/size_control_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
-class FontSizeControls extends StatelessWidget {
-  const FontSizeControls({super.key});
+class SizeControl extends StatelessWidget {
+  final Function callbackSizeChanged;
+  final String tooltip;
+  final int size;
+
+  const SizeControl({
+    super.key,
+    required this.callbackSizeChanged,
+    required this.size,
+    required this.tooltip,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
-      viewModelBuilder: () => FontSizeControlsViewModel(),
-      onViewModelReady: (viewModel) => viewModel.ready(),
+      viewModelBuilder: () => SizeControlViewModel(),
+      onViewModelReady: (viewModel) =>
+          viewModel.ready(callbackSizeChanged, size),
       builder: (context, viewModel, child) => Container(
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
@@ -24,7 +33,7 @@ class FontSizeControls extends StatelessWidget {
         ),
         child: Row(children: [
           CustomIconButton(
-            tooltipMessage: "Decreases the font size",
+            tooltipMessage: "Decreases the size",
             solidColor: ThemeStyles.mainColor,
             icon: const Icon(
               Icons.remove,
@@ -32,7 +41,7 @@ class FontSizeControls extends StatelessWidget {
               size: 30,
             ),
             label: "",
-            callback: () => viewModel.executeCommand(EditorCommand.decreseFont),
+            callback: viewModel.onSizeDecreased,
           ),
           Container(
             padding: const EdgeInsets.all(5),
@@ -43,12 +52,12 @@ class FontSizeControls extends StatelessWidget {
               ),
             ),
             child: Text(
-              viewModel.activeFontSize,
+              viewModel.currentSize,
               style: ThemeStyles.regularParagraph,
             ),
           ),
           CustomIconButton(
-            tooltipMessage: "Increase the font size",
+            tooltipMessage: "Increase the size",
             solidColor: ThemeStyles.mainColor,
             icon: const Icon(
               Icons.add,
@@ -56,8 +65,7 @@ class FontSizeControls extends StatelessWidget {
               size: 30,
             ),
             label: "",
-            callback: () =>
-                viewModel.executeCommand(EditorCommand.increaseFont),
+            callback: viewModel.onSizeIncreased,
           ),
         ]),
       ),
