@@ -58,6 +58,12 @@ flutter build macos (for macos users)
 
 ## Contributing
 
+Please reach out to me, before starting to work on something. I am not a control freak, just want to make sure we are not duplicating stuff. 
+
+Simply open an issue with the intended changes that you want to make. 
+
+If you are interested in helping out with some of the features that i have planned to add and are not sure of what to work on i have a backlog for you, reach out and i will make sure you have pleanty to do. :)
+
 We welcome contributions from the community to make Shadowkeep even better. To contribute, follow these steps:
 
 1. Fork the Shadowkeep repository.
