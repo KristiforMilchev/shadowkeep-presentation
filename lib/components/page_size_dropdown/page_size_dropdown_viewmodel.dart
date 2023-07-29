@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:domain/models/page_size.dart';
 import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +81,7 @@ class PageSizeDropdownViewModel extends BaseViewModel {
         content: Container(
           alignment: Alignment.centerLeft,
           child: Text(
-            element.name,
+            "${element.name} (W: ${element.width.roundToDouble()} H:${element.height.roundToDouble()})",
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
             style: const TextStyle(

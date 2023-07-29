@@ -2,6 +2,7 @@ import 'package:domain/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/components/editor_settings_panel/editor_settings_panel_viewmodel.dart';
 import 'package:presentation/components/font_dropdown/font_dropdown_view.dart';
+import 'package:presentation/components/page_size_dropdown/page_size_dropdown.dart';
 import 'package:presentation/components/size_control.dart/size_control.dart';
 import 'package:shadowkeep_editor/main.dart';
 import 'package:stacked/stacked.dart';
@@ -176,28 +177,39 @@ class EditorSettingsPage extends StatelessWidget {
                       const SizedBox(height: 16),
                       SizedBox(
                         width: 300,
-                        child: Column(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                const Icon(
-                                  Icons.text_snippet,
-                                  color: ThemeStyles.fontSecondary,
-                                  size: 30,
-                                ),
-                                const SizedBox(width: 26),
-                                Text(
-                                  "Default font family",
-                                  style: ThemeStyles.regularParagraph,
-                                ),
-                              ],
+                            const Icon(
+                              Icons.text_snippet,
+                              color: ThemeStyles.fontSecondary,
+                              size: 30,
                             ),
-                            const SizedBox(height: 16),
+                            Text(
+                              "Font family",
+                              style: ThemeStyles.regularParagraph,
+                            ),
                             const FontDropdown(),
                           ],
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 16),
+                      SizedBox(
+                        width: 300,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Default page size",
+                              style: ThemeStyles.regularParagraph,
+                            ),
+                            const PageSizeDropdown(
+                              width: 300,
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 16),
                     ],
                   ),
                 ),

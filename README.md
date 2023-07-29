@@ -28,7 +28,6 @@ git clone https://github.com/KristiforMilchev/shadowkeep-presentation
 
 2. Install the required dependencies.
 
-
 ```bash
 git clone https://github.com/flutter/flutter.git
 

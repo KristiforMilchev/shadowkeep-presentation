@@ -6,6 +6,7 @@ import 'package:presentation/components/editor_settings_panel/editor_settings_pa
 import 'package:presentation/components/font_dropdown/font_dropdown_view.dart';
 import 'package:presentation/components/font_size_controls/font_size_controls_view.dart';
 import 'package:presentation/components/intellisense_menu/intellisense_menu.dart';
+import 'package:presentation/components/page_size_dropdown/page_size_dropdown.dart';
 import 'package:presentation/views/add_new_page/panels/page_editor_viewmodel.dart';
 import 'package:shadowkeep_editor/main.dart';
 import 'package:stacked/stacked.dart';
@@ -90,10 +91,10 @@ class PageEditor extends StatelessWidget {
                 ],
               ),
               Container(
-                height: 35,
+                height: 70,
                 width: double.infinity,
                 color: ThemeStyles.mainColor,
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
@@ -116,6 +117,10 @@ class PageEditor extends StatelessWidget {
                           ],
                         ),
                       ),
+                    ),
+                    PageSizeDropdown(
+                      width: viewModel.pageWidth,
+                      maxHeight: 800,
                     ),
                   ],
                 ),

@@ -5,12 +5,15 @@ import 'package:presentation/components/page_size_dropdown/page_size_dropdown_vi
 import 'package:stacked/stacked.dart';
 
 class PageSizeDropdown extends StatelessWidget {
-  const PageSizeDropdown({super.key});
+  final double? width;
+  final double? maxHeight;
+  const PageSizeDropdown({super.key, required this.width, this.maxHeight});
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => PageSizeDropdownViewModel(),
+      onViewModelReady: (viewModel) => viewModel.ready(context),
       builder: (context, viewModel, child) => Container(
         padding: const EdgeInsets.all(5),
         decoration: BoxDecoration(
@@ -29,9 +32,10 @@ class PageSizeDropdown extends StatelessWidget {
             color: Colors.transparent,
           ),
           dropdownDecoration: BoxDecoration(color: ThemeStyles.mainColor),
-          maxHeight: 400,
-          dropdownHeight: 400,
-          dropdownWidth: 300,
+          buttonWidth: width,
+          maxHeight: maxHeight ?? 200,
+          dropdownHeight: maxHeight ?? 200,
+          dropdownWidth: width ?? 300,
           buttonHeight: 30,
           iconEnabledColor: ThemeStyles.fontPrimary,
           icon: const Icon(
